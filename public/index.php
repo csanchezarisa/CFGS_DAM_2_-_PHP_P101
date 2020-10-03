@@ -65,10 +65,10 @@
 
             <div class="botonsnavegacio">
                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                    <input type="submit" name="btnprincipi" value="<<" />
-                    <input type="submit" name="btnanterior" value="<" />
-                    <input type="submit" name="btnseguent" value=">" />
-                    <input type="submit" name="btnfinal" value=">>" />
+                    <input type="submit" name="btnprincipi" value="<<" class="botonavegacio" />
+                    <input type="submit" name="btnanterior" value="<" class="botonavegacio" />
+                    <input type="submit" name="btnseguent" value=">" class="botonavegacio" />
+                    <input type="submit" name="btnfinal" value=">>" class="botonavegacio" />
                 </form>
             </div>
 
