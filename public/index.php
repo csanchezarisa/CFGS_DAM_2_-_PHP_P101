@@ -23,11 +23,35 @@
             <?php
 
                 require "./lstxml.php";
+                require "./navegaxml.php";
 
-                listXml($document);
+                listXml();
 
             ?>
 
+
+        </div>
+        <div id="llistanavegable">
+        
+            <h2>Informació dels llibres</h2>
+            <hr align="left" />
+
+            <?php
+
+                mostrarPagina($pagina);
+
+            ?>
+
+            <div class="botonsnavegacio">
+                <button id="btnprincipi" onClick="<?php 
+
+                ?>"><<</button>
+                <button id="btnanterior"><</button>
+                <button id="btnseguent" onClick="<?php 
+                    paginaSeguent();
+                ?>">></button>
+                <button id="btnfinal">>></button>
+            </div>
 
         </div>
 

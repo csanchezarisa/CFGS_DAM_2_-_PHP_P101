@@ -17,6 +17,15 @@ hr {
     width: 60%;
 }
 
+h3 {
+    text-decoration: underline;
+}
+
 #llistatautors {
-    
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.botonsnavegacio {
+    text-align: center;
 }

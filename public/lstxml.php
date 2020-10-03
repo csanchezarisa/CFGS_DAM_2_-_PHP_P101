@@ -6,7 +6,9 @@
     $document = new DOMDocument();
     $document -> load($fitxer);
 
-    function listXml($document) {
+    function listXml() {
+
+        global $document;
 
         $llibres = $document->getElementsByTagName("book");
 
