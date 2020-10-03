@@ -5,29 +5,45 @@
     $fitxer = $directori . $nomArxiu;
     $document = new DOMDocument();
     $document -> load($fitxer);
-    
-    $pagina = 0;
+    $llibre = $document->getElementsByTagName("book");
 
-    function paginaSeguent() {
+    function paginaSeguent($pagina) {
 
-        global $pagina;
+        global $llibre;
 
-        $pagina ++;
-        mostrarPagina($pagina);
+        $paginaNova = $pagina + 1;
+
+        if ($paginaNova >= $llibre->length) {
+            return $pagina;
+        }
+        else {
+            return $paginaNova;
+        }
     }
 
-    function paginaAnterior() {
+    function paginaAnterior($pagina) {
 
-        global $pagina;
+        global $llibre;
 
-        $pagina --;
-        mostrarPagina($pagina);
+        $paginaNova = $pagina - 1;
+
+        if ($paginaNova < 0) {
+            return $pagina;
+        }
+        else {
+            return $paginaNova;
+        }
+    }
+
+    function ultimaPagina() {
+        global $llibre;
+
+        return ($llibre->length - 1);
     }
 
     function mostrarPagina($pagina) {
-        global $document;
+        global $llibre;
 
-        $llibre = $document->getElementsByTagName("book");
         $llibre = $llibre[$pagina];
 
         $autor = $llibre->getElementsByTagName("author");
