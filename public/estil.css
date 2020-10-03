@@ -1,0 +1,22 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+#main {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px 50px;
+}
+
+hr {
+    width: 60%;
+}
+
+#llistatautors {
+    
+}
