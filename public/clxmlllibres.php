@@ -35,6 +35,13 @@
         }
 
 
+        public function canviarDirectoriIFitxer($directoriNou, $fitxerNou) {
+
+            $this->carregarFitxer($directoriNou, $fitxerNou);
+
+        }
+
+
         private function carregarFitxer($directoriNou, $nomArxiuNou) { // Torna a carregar el fitxer amb el nou dirctori/
 
             $this->directori = $directoriNou;
@@ -89,7 +96,7 @@
             }
         }
     
-        
+
         public function ultimaPagina() {
     
             return ($this->llibres->length - 1);

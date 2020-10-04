@@ -21,11 +21,20 @@ h3 {
     text-decoration: underline;
 }
 
+tr, td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 .taulacanviarfitxer {
     border-collapse: collapse;
-    border: 1px solid black;
-    width: 100%;
+    border: none;
+    width: 50%;
     text-align: center;
+}
+
+input[type="text"] {
+    height: 20px;
 }
 
 #llistatautors, #llistanavegable, #formularicanvifitxer {
@@ -49,12 +58,23 @@ h3 {
     transition: background-color 1s;
 }
 
-.botonavegacio:hover {
+.botocarregarfitxer {
+    font-size: 16;
+    vertical-align: middle;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background-color: lightgrey;
+    transition: background-color 1s;
+}
+
+.botonavegacio:hover, .botocarregarfitxer:hover {
     cursor: pointer;
     background-color: darkgrey;
 }
 
-.botonavegacio:active {
+.botonavegacio:active, .botocarregarfitxer:active {
     cursor: pointer;
     background-color: grey;
 }

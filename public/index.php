@@ -25,9 +25,6 @@
                 session_start();
 
                 require "clxmlllibres.php";
-                require "./lstxml.php";
-                require "./navegaxml.php";
-
                 $fitxerXml = new clmxllibres();
 
                 $fitxerXml->listXml();
@@ -84,28 +81,64 @@
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                 <table class="taulacanviarfitxer">
                     <tr>
-                        <td>
-                            hola
-                        </td>
-                        <td>
-                            hola
+                        <td colspan="2" style="text-align:left">
+                            Necessites obrir un altre fitxer?<br />
+                            Omple el formulari per obrir-ne un altre.
                         </td>
                     </tr>
                     <tr>
                         <td>
-                        
+                            Directori nou: <input type="text" name="txtnoudirectori" placeholder="Introdueix el nou directori" />
                         </td>
                         <td>
-                        
+                            Fitxer nou: <input type="text" name="txtnoufitxer" placeholder="Introdueix el nou fitxer" />
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2">
-                        
+                        <td colspan="2" style="text-align:right">
+                            <input type="submit" name="btncarregarfitxernou" value="Carregar fitxer nou" class="botocarregarfitxer" />
                         </td>
                     </tr>
                 </table>
             </form>
+
+            <?php 
+
+                if (isset($_POST["btncarregarfitxernou"])) {
+
+                    if (isset($_POST["txtnoudirectori"]) && isset($_POST["txtnoufitxer"])) {
+
+                        $_SESSION["directori"] = $_POST["txtnoudirectori"];
+                        $_SESSION["fitxer"] = $_POST["txtnoufitxer"];
+
+                        $fitxerXml->canviarDirectoriIFitxer($_SESSION["directori"], $_SESSION["fitxer"]);
+
+                    }
+                    elseif (isset($_POST["txtnoudirectori"])) {
+
+                        $_SESSION["directori"] = $_POST["txtnoudirectori"];
+
+                        $fitxerXml->canviarDirectori($_SESSION["directori"]);
+
+                    }
+                    elseif (isset($_POST["txtnoufitxer"])) {
+                        
+                        $_SESSION["fitxer"] = $_POST["txtnoufitxer"];
+
+                        $fitxerXml->canviarFitxer($_SESSION["fitxer"]);
+
+                    }
+
+                }
+                else {
+
+                    $_SESSION["directori"] = "./";
+                    $_SESSION["fitxer"] = "LLIBRES.XML";
+                
+                }
+
+                $fitxerXml->canviarDirectoriIFitxer($_SESSION["directori"], $_SESSION["fitxer"]);
+            ?>
 
         </div>
 
