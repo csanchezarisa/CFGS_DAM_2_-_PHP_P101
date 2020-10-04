@@ -21,7 +21,14 @@ h3 {
     text-decoration: underline;
 }
 
-#llistatautors {
+.taulacanviarfitxer {
+    border-collapse: collapse;
+    border: 1px solid black;
+    width: 100%;
+    text-align: center;
+}
+
+#llistatautors, #llistanavegable, #formularicanvifitxer {
     padding-top: 10px;
     padding-bottom: 20px;
 }

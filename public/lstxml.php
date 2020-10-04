@@ -1,11 +1,5 @@
 <?php
-
-    $directori = "./";
-    $nomArxiu = "LLIBRES.xml";
-    $fitxer = $directori . $nomArxiu;
-    $document = new DOMDocument();
-    $document -> load($fitxer);
-
+    /*
     function listXml() {
 
         global $document;
@@ -22,7 +16,6 @@
         }
 
         echo "</ul>";
-
     }
-    
+    */
 ?>

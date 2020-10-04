@@ -1,5 +1,5 @@
 <?php
-
+/*
     $directori = "./";
     $nomArxiu = "LLIBRES.xml";
     $fitxer = $directori . $nomArxiu;
@@ -71,4 +71,5 @@
         echo "<li><strong>Data de pulicació:</strong> $dataPublicacio</li>";
         echo "<li><strong>Descripció:</strong> $descripcio</li></ul>";
     }
+    */
 ?>

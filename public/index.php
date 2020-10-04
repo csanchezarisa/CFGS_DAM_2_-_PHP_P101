@@ -24,10 +24,13 @@
 
                 session_start();
 
+                require "clxmlllibres.php";
                 require "./lstxml.php";
                 require "./navegaxml.php";
 
-                listXml();
+                $fitxerXml = new clmxllibres();
+
+                $fitxerXml->listXml();
 
             ?>
 
@@ -42,23 +45,23 @@
 
                 if (isset($_POST['btnprincipi'])) {
                     $_SESSION["pagina"] = 0;
-                    mostrarPagina($_SESSION["pagina"]);
+                    $fitxerXml->mostrarPagina($_SESSION["pagina"]);
                 }
                 elseif (isset($_POST['btnanterior'])) {
-                    $_SESSION["pagina"] = paginaAnterior($_SESSION["pagina"]);
-                    mostrarPagina($_SESSION["pagina"]);
+                    $_SESSION["pagina"] = $fitxerXml->paginaAnterior($_SESSION["pagina"]);
+                    $fitxerXml->mostrarPagina($_SESSION["pagina"]);
                 }
                 elseif (isset($_POST['btnseguent'])) {
-                    $_SESSION["pagina"] = paginaSeguent($_SESSION["pagina"]);
-                    mostrarPagina($_SESSION["pagina"]);
+                    $_SESSION["pagina"] = $fitxerXml->paginaSeguent($_SESSION["pagina"]);
+                    $fitxerXml->mostrarPagina($_SESSION["pagina"]);
                 }
                 elseif (isset($_POST['btnfinal'])) {
-                    $_SESSION["pagina"] = ultimaPagina();
-                    mostrarPagina($_SESSION["pagina"]);
+                    $_SESSION["pagina"] = $fitxerXml->ultimaPagina();
+                    $fitxerXml->mostrarPagina($_SESSION["pagina"]);
                 }
                 else {
                     $_SESSION["pagina"] = 0;
-                    mostrarPagina($_SESSION["pagina"]);
+                    $fitxerXml->mostrarPagina($_SESSION["pagina"]);
                 }
 
             ?>
@@ -71,6 +74,38 @@
                     <input type="submit" name="btnfinal" value=">>" class="botonavegacio" />
                 </form>
             </div>
+
+        </div>
+        <div id="formularicanvifitxer">
+        
+            <h2>Obrir un altre fitxer</h2>
+            <hr align="left" />
+
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                <table class="taulacanviarfitxer">
+                    <tr>
+                        <td>
+                            hola
+                        </td>
+                        <td>
+                            hola
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        
+                        </td>
+                        <td>
+                        
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                        
+                        </td>
+                    </tr>
+                </table>
+            </form>
 
         </div>
 
