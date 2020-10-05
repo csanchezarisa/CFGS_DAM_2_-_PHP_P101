@@ -35,7 +35,7 @@
         }
 
 
-        public function canviarDirectoriIFitxer($directoriNou, $fitxerNou) {
+        public function canviarDirectoriIFitxer($directoriNou, $fitxerNou) { // Mètode que permet canviar el nom del fitxer i del directori
 
             $this->carregarFitxer($directoriNou, $fitxerNou);
 
@@ -70,7 +70,7 @@
         }
 
 
-        public function paginaSeguent($pagina) {
+        public function paginaSeguent($pagina) { // Mètode que revisa que la pàgina no sigui la última i sigui possible passar a la següent
 
             $paginaNova = $pagina + 1;
     
@@ -84,7 +84,7 @@
         }
     
 
-        public function paginaAnterior($pagina) {
+        public function paginaAnterior($pagina) { // Mètode que revisa que la pàgina a la que es vol passar sigui la última
     
             $paginaNova = $pagina - 1;
     
@@ -97,14 +97,14 @@
         }
     
 
-        public function ultimaPagina() {
+        public function ultimaPagina() { // Retorna el número de pàgina final
     
             return ($this->llibres->length - 1);
 
         }
     
 
-        function mostrarPagina($pagina) {
+        function mostrarPagina($pagina) { // Imprimeix codi HTML un llistat dels elements d'una posició concreta de l'array de llibres
     
             $llibre = $this->llibres[$pagina];
     
