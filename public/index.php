@@ -27,8 +27,6 @@
                 require "clxmlllibres.php";
                 $fitxerXml = new clmxllibres();
 
-                $fitxerXml->listXml();
-
                 if ((isset($_SESSION["directori"]) && isset($_SESSION["fitxer"]))) {
 
                     $fitxerXml->canviarDirectoriIFitxer($_SESSION["directori"], $_SESSION["fitxer"]);
@@ -44,6 +42,8 @@
                     $fitxerXml->canviarFitxer($_SESSION["fitxer"]);
 
                 }
+
+                $fitxerXml->listXml();
 
             ?>
 
