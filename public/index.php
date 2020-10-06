@@ -22,11 +22,16 @@
 
             <?php
 
-                session_start();
+                session_start(); // S'inicia una sessió per poder emmagatzemar-hi variables de sessió
 
-                require "clxmlllibres.php";
+                require "clxmlllibres.php"; // Es vincula el fitxer amb la classe i s'inicialitza l'objecte amb el fitxer XML
                 $fitxerXml = new clmxllibres();
 
+                /* Es comprova si hi ha inicialitzada alguna de les variables de sessió que fan referència
+                a l'obertura d'un fitxer diferent al predeterminat (s'assigna en el segon formulari) 
+                
+                Si s'ha inicialitzat alguna de les variables referents a un directori o un fitxer diferent
+                al predeterminal es criden els mètodes pertinents */
                 if ((isset($_SESSION["directori"]) && isset($_SESSION["fitxer"]))) {
 
                     $fitxerXml->canviarDirectoriIFitxer($_SESSION["directori"], $_SESSION["fitxer"]);
@@ -43,7 +48,7 @@
 
                 }
 
-                $fitxerXml->listXml();
+                $fitxerXml->listXml(); // Es mostra el llistat amb els autors que hi ha en el XMLs
 
             ?>
 
@@ -56,6 +61,8 @@
 
             <?php
 
+                /* S'executa quan es prem un dels botons de navegació del formulari inferior.
+                Depenent quin botó es premi s'executarà un mètode o un altre */
                 if (isset($_POST['btnprincipi'])) {
                     $_SESSION["pagina"] = 0;
                     $fitxerXml->mostrarPagina($_SESSION["pagina"]);
@@ -79,6 +86,7 @@
 
             ?>
 
+            <!-- Formulari per navegar entre les pàgines del XML -->
             <div class="botonsnavegacio">
                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                     <input type="submit" name="btnprincipi" value="<<" class="botonavegacio" />
@@ -93,6 +101,8 @@
         
         <?php 
 
+            /* S'executa quan es prem el botó submit del formulari inferior.
+            Depenent què s'ha definit es canvia una variable de sessió o un altre */
             if (isset($_POST["btncarregarfitxernou"])) {
 
                 if (isset($_POST["txtnoudirectori"]) && isset($_POST["txtnoufitxer"])) {
@@ -119,6 +129,7 @@
             <h2>Obrir un altre fitxer</h2>
             <hr align="left" />
 
+            <!-- Formulari per obrir un altre fitxer/directori -->
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                 <table class="taulacanviarfitxer">
                     <tr>
