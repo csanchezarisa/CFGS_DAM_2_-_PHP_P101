@@ -59,7 +59,7 @@
             echo "<ul>";
     
             foreach ($this->llibres as $llibre) {
-                $autors = $llibre->getElementsByTagName("author");
+                $autors = $llibre->getElementsByTagName("title");
                 $autor = $autors->item(0)->nodeValue;
     
                 echo "<li>$autor</li>";

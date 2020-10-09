@@ -17,7 +17,7 @@
 
         <div id="llistatautors">
 
-            <h2>Autors</h1>
+            <h2>Títols</h1>
             <hr align="left" />
 
             <?php
@@ -48,10 +48,11 @@
 
                 }
 
-                $fitxerXml->listXml(); // Es mostra el llistat amb els autors que hi ha en el XMLs
-
             ?>
 
+            <form id="listXML">
+                <?php $fitxerXml->listXml(); // Es mostra el llistat amb els autors que hi ha en el XMLs ?>
+            </form>
 
         </div>
         <div id="llistanavegable">
@@ -88,7 +89,7 @@
 
             <!-- Formulari per navegar entre les pàgines del XML -->
             <div class="botonsnavegacio">
-                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                <form id="navegaXML" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                     <input type="submit" name="btnprincipi" value="<<" class="botonavegacio" />
                     <input type="submit" name="btnanterior" value="<" class="botonavegacio" />
                     <input type="submit" name="btnseguent" value=">" class="botonavegacio" />
@@ -130,7 +131,7 @@
             <hr align="left" />
 
             <!-- Formulari per obrir un altre fitxer/directori -->
-            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+            <form id="canviarXML" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                 <table class="taulacanviarfitxer">
                     <tr>
                         <td colspan="2" style="text-align:left">
