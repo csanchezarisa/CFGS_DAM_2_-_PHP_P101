@@ -8,6 +8,7 @@
         private $document;
         private $llibres;
         private $llistatTitols = array();
+        private $propietatsLlibre = array();
 
 
         public function __construct() { // Constructor de la classe. Assigna els valors per defecte
@@ -55,7 +56,7 @@
         }
 
 
-        public function listXml() { // Crea i mostra un llistat HTML amb els noms dels autors dels llibres
+        public function listXml() { // Crea i retorna un array amb els noms dels títols dels llibres
 
             foreach ($this->llibres as $llibre) {
 
@@ -70,68 +71,75 @@
         }
 
 
-        public function paginaSeguent($pagina) { // Mètode que revisa que la pàgina no sigui la última i sigui possible passar a la següent
+        public function nodeSeguent($pagina) { // Mètode que revisa que la pàgina no sigui la última i sigui possible passar a la següent. Retorna el valor i canvia les propietats de l'objecte per les d'aquest node
 
             $paginaNova = $pagina + 1;
     
             if ($paginaNova >= $this->llibres->length) {
+                $this->nodeXML($pagina);
                 return $pagina;
             }
             else {
+                $this->nodeXML($paginaNova);
                 return $paginaNova;
             }
 
         }
     
 
-        public function paginaAnterior($pagina) { // Mètode que revisa que la pàgina a la que es vol passar sigui la última
+        public function nodeAnterior($pagina) { // Mètode que revisa que la pàgina a la que es vol passar sigui la última. Retorna el valor i canvia les propietats de l'objecte per les d'aquest node
     
             $paginaNova = $pagina - 1;
     
             if ($paginaNova < 0) {
+                $this->nodeXML($pagina);
                 return $pagina;
             }
             else {
+                $this->nodeXML($paginaNova);
                 return $paginaNova;
             }
         }
     
 
-        public function ultimaPagina() { // Retorna el número de pàgina final
+        public function ultimNode() { // Retorna el número de pàgina final i canvia les propietats de l'objecte per les d'aquest node
     
+            $this->nodeXML($this->llibres->length - 1);
             return ($this->llibres->length - 1);
+
+        }
+
+
+        public function primerNode() { // Retorna 0, la primera pàgina, i canvia les propietats de l'objecte per les d'aquest node
+
+            $this->nodeXML(0);
+            return 0;
 
         }
     
 
-        function nodeXML($pagina) { // Imprimeix codi HTML un llistat dels elements d'una posició concreta de l'array de llibres
+        private function nodeXML($pagina) { // Segons la pàgina indicada, carrega les dades d'un node o d'un altre. Després, introdueix les propietats del mateix en l'array de propietats de l'objecte
     
             $llibre = $this->llibres[$pagina];
-    
-            $autor = $llibre->getElementsByTagName("author");
-            $autor = $autor->item(0)->nodeValue;
-    
-            $titol = $llibre->getElementsByTagName("title");
-            $titol = $titol->item(0)->nodeValue;
-    
-            $genere = $llibre->getElementsByTagName("genre");
-            $genere = $genere->item(0)->nodeValue;
-    
-            $preu = $llibre->getElementsByTagName("price");
-            $preu = $preu->item(0)->nodeValue;
-    
-            $dataPublicacio = $llibre->getElementsByTagName("publish_date");
-            $dataPublicacio = $dataPublicacio->item(0)->nodeValue;
-    
-            $descripcio = $llibre->getElementsByTagName("description");
-            $descripcio = $descripcio->item(0)->nodeValue;
-    
-            echo "<h3>" . ($pagina + 1) . " - " . $titol . "</h3>";
-            echo "<ul><li><strong>Autor:</strong> $autor</li>";
-            echo "<li><strong>Gènere:</strong> $genere</li>";
-            echo "<li><strong>Preu:</strong> $preu</li>";
-            echo "<li><strong>Data de pulicació:</strong> $dataPublicacio</li>";
-            echo "<li><strong>Descripció:</strong> $descripcio</li></ul>";
+            $subNodes = $llibre->childNodes;
+
+            $propietats = array();
+
+            foreach ($subNodes as $node) {
+                $propietat = $node->nodeName;
+                $valor = $node->nodeValue;
+
+                $hola = array($propietat => $valor);
+                $propietats = array_merge($propietats, $hola);
+            }
+
+            $this->propietatsLlibre = $propietats;
+        }
+
+
+        public function getPropietatsNode() { // Retorna l'array amb les propietats del node que s'està analitzant
+
+            return $this->propietatsLlibre;
 
         }
 
