@@ -27,6 +27,12 @@
                 header('Refresh:0');
 
             }
+            elseif (isset($_POST["btnrestaurar"])) {
+
+                session_unset();
+                header('Refresh:0');
+
+            }
 
         ?>
 
@@ -52,6 +58,7 @@
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align:right">
+                            <input type="submit" name="btnrestaurar" value="Restaurar fitxer" class="botocarregarfitxer" /> &nbsp;
                             <input type="submit" name="btncarregarfitxernou" value="Carregar fitxer nou" class="botocarregarfitxer" />
                         </td>
                     </tr>
