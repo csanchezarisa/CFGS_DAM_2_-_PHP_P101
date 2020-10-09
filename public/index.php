@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P101 - Cristóbal Sánchez Arisa</title>
-    <link rel="stylesheet" href="estil.css" type="text/css">
-</head>
+<?php
+
+    include "header.php";
+
+?>
+
 <body>
 
     <div id="main">
@@ -26,6 +24,8 @@
 
                 require "clxmlllibres.php"; // Es vincula el fitxer amb la classe i s'inicialitza l'objecte amb el fitxer XML
                 $fitxerXml = new clmxllibres();
+
+                require "listXML.php";
 
                 /* Es comprova si hi ha inicialitzada alguna de les variables de sessió que fan referència
                 a l'obertura d'un fitxer diferent al predeterminat (s'assigna en el segon formulari) 
@@ -51,7 +51,9 @@
             ?>
 
             <form id="listXML">
-                <?php $fitxerXml->listXml(); // Es mostra el llistat amb els autors que hi ha en el XMLs ?>
+
+                <?php listXML()->llistarXML($fitxerXml); // Es mostra el llistat amb els autors que hi ha en el XMLs ?>
+                
             </form>
 
         </div>

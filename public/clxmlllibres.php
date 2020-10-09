@@ -56,16 +56,17 @@
 
         public function listXml() { // Crea i mostra un llistat HTML amb els noms dels autors dels llibres
     
-            echo "<ul>";
-    
+            $llistatTitols = array();
+
             foreach ($this->llibres as $llibre) {
-                $autors = $llibre->getElementsByTagName("title");
-                $autor = $autors->item(0)->nodeValue;
+
+                $titols = $llibre->getElementsByTagName("title");
+                $titol = $titols->item(0)->nodeValue;
     
-                echo "<li>$autor</li>";
+                array_push($llistatTitols, $titol);
             }
-    
-            echo "</ul>";
+
+            return $llistatTitols;
     
         }
 
