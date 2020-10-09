@@ -104,7 +104,7 @@
         }
     
 
-        function mostrarPagina($pagina) { // Imprimeix codi HTML un llistat dels elements d'una posició concreta de l'array de llibres
+        function nodeXML($pagina) { // Imprimeix codi HTML un llistat dels elements d'una posició concreta de l'array de llibres
     
             $llibre = $this->llibres[$pagina];
     

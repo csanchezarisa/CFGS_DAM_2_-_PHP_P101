@@ -66,23 +66,23 @@
                 Depenent quin botó es premi s'executarà un mètode o un altre */
                 if (isset($_POST['btnprincipi'])) {
                     $_SESSION["pagina"] = 0;
-                    $fitxerXml->mostrarPagina($_SESSION["pagina"]);
+                    $fitxerXml->nodeXML($_SESSION["pagina"]);
                 }
                 elseif (isset($_POST['btnanterior'])) {
                     $_SESSION["pagina"] = $fitxerXml->paginaAnterior($_SESSION["pagina"]);
-                    $fitxerXml->mostrarPagina($_SESSION["pagina"]);
+                    $fitxerXml->nodeXML($_SESSION["pagina"]);
                 }
                 elseif (isset($_POST['btnseguent'])) {
                     $_SESSION["pagina"] = $fitxerXml->paginaSeguent($_SESSION["pagina"]);
-                    $fitxerXml->mostrarPagina($_SESSION["pagina"]);
+                    $fitxerXml->nodeXML($_SESSION["pagina"]);
                 }
                 elseif (isset($_POST['btnfinal'])) {
                     $_SESSION["pagina"] = $fitxerXml->ultimaPagina();
-                    $fitxerXml->mostrarPagina($_SESSION["pagina"]);
+                    $fitxerXml->nodeXML($_SESSION["pagina"]);
                 }
                 else {
                     $_SESSION["pagina"] = 0;
-                    $fitxerXml->mostrarPagina($_SESSION["pagina"]);
+                    $fitxerXml->nodeXML($_SESSION["pagina"]);
                 }
 
             ?>
