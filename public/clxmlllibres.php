@@ -7,6 +7,7 @@
         private $fitxer;
         private $document;
         private $llibres;
+        private $llistatTitols = array();
 
 
         public function __construct() { // Constructor de la classe. Assigna els valors per defecte
@@ -55,18 +56,16 @@
 
 
         public function listXml() { // Crea i mostra un llistat HTML amb els noms dels autors dels llibres
-    
-            $llistatTitols = array();
 
             foreach ($this->llibres as $llibre) {
 
                 $titols = $llibre->getElementsByTagName("title");
                 $titol = $titols->item(0)->nodeValue;
     
-                array_push($llistatTitols, $titol);
+                array_push($this->llistatTitols, $titol);
             }
 
-            return $llistatTitols;
+            return $this->llistatTitols;
     
         }
 
