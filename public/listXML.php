@@ -32,7 +32,7 @@
 
     <div id="llistatautors">
 
-        <h2>Títols</h1>
+        <h2>Títols</h2>
         <hr align="left" />
 
             <form id="listXML">
